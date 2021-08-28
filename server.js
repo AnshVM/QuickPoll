@@ -3,6 +3,7 @@ const app = require('./app');
 const dotenv = require('dotenv');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
+const path = require('path');
 
 dotenv.config();
 
@@ -17,9 +18,14 @@ io.on('connection',(socket)=>{
     })
 })
 
-// if(process.env.NODE_ENV === 'production'){
-//     app.use(express.static('../client/buld'))
-// }
+if(process.env.NODE_ENV === 'production'){
+
+    app.use(express.static('client/buld'));
+
+    app.use('*',(req,res)=>{
+        res.sendFile(path.resolve('client','build','index.html'))   
+    })
+}
 
 http.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
