@@ -8,7 +8,7 @@ dotenv.config();
 
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true});
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 io.on('connection',(socket)=>{
     socket.on('POLL_UPDATE',(data)=>{
@@ -16,6 +16,10 @@ io.on('connection',(socket)=>{
         socket.broadcast.emit('POLL_UPDATE',data);
     })
 })
+
+// if(process.env.NODE_ENV === 'production'){
+//     app.use(express.static('../client/buld'))
+// }
 
 http.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
