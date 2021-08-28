@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.loginPage{
+    font-family: 'Roboto',sans-serif;
+    background-color:#E3E3E3;
+    height: 100vh;
+    padding-top: 120px;
+    .loginCard{
+        background-color: white;
+        height: 350px;
+        width: 300px;
+        margin: auto;
+        border-radius: 20px;
+        box-shadow: 1px 1px 7px grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            padding-top: 20px;
+            // margin: 105px;
+            font-size: 20px;
+            color:#7700A0 ;
+            background-color:white;
+        }
+        .email{
+            margin-top: 90px;
+        }
+        p{
+            color: red;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,49 @@
+@import "../../global.scss";
+.hero {
+  height: calc(100vh - 70px);
+  background-color: white;
+
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50px 15% 0 15%;
+
+  .left {
+    width: 400px;
+    flex: 50%;
+    p {
+      width: 400px;
+      font-weight: 700;
+      font-size: 3em;
+      span {
+        color: #da0183;
+      }
+    }
+    .curvedLine {
+      position: relative;
+      bottom: 5px;
+      right: 20px;
+    }
+    .createPoll {
+      text-decoration: none;
+      background-color: #da0183;
+      margin-top: 60px;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: normal;
+      cursor: pointer;
+      transition: all ease 0.3s;
+      &:hover {
+        background-color: #97005b;
+      }
+    }
+  }
+  .upvote {
+    width: 50%;
+    height: 300px;
+  }
+}

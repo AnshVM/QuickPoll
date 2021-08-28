@@ -1,0 +1,11 @@
+.pollOption{
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: #959da5c0 0px 8px 24px;
+    cursor: pointer;
+    transition: padding ease 0.3s;
+    &:hover{
+        padding-right:30px;
+        padding-left: 30px;
+    }
+}

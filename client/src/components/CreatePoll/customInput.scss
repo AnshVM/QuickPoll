@@ -1,0 +1,38 @@
+
+.inputContainer{
+    margin-top: 20px;
+    p{
+        font-size: 15px;
+        color:grey;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    textarea{
+        border: white 2px solid;
+        font-size: 17px;
+        resize: none;
+        height:70px;
+        width: 70%;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px grey;
+        border: none;
+        padding: 10px;
+        &:focus{
+            outline:none;
+            border: #7700A0 2px solid;
+            box-shadow: none;
+        }
+    }
+    svg{
+        
+        cursor: pointer;
+        position: relative;
+        bottom: 35px;
+        margin-left: 10px;
+        color: red;
+        transition: all ease 0.3s;
+        &:hover{
+            color: rgb(190, 1, 1);
+        }
+    }
+}

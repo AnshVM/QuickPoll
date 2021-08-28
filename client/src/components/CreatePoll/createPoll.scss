@@ -1,0 +1,46 @@
+.bodyContainer {
+  width: 70%;
+  padding: 40px 15% 0 15%;
+  h1 {
+    margin-bottom: 20px;
+  }
+  #info {
+    margin-bottom: 40px;
+  }
+  #addOption {
+    text-decoration: none;
+    background-color: #fa0096;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    margin-bottom: 30px;
+    border-radius: 7px;
+
+    &:hover {
+      background-color: #97005b;
+    }
+  }
+  #createPoll {
+    margin-left: 20px;
+    text-decoration: none;
+    background-color: #7700a0;
+    border-radius: 7px;
+    margin-top: 10px;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: all ease 0.3s;
+    margin-bottom: 30px;
+    &:hover {
+      background-color: #51006d;
+    }
+  }
+}

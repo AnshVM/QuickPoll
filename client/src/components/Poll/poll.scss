@@ -1,0 +1,57 @@
+.mainBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 40px 15% 0 15%;
+  .pollContent {
+    width: 70%;
+    padding-right: 40px;
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+  .sideBody {
+      margin-top: 50px;
+      text-align: center;
+    #hasVoted{
+      margin-bottom: 20px;
+    }
+    .vote {
+      text-decoration: none;
+      background-color: #fa0096;
+      margin-top: 10px;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: normal;
+      cursor: pointer;
+      transition: all ease 0.3s;
+      margin-bottom: 30px;
+      border-radius: 7px;
+
+      &:hover {
+        background-color: #97005b;
+      }
+    }
+
+    .copy {
+      text-decoration: none;
+      background-color: #7700A0;
+      margin-top: 10px;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: normal;
+      cursor: pointer;
+      transition: all ease 0.3s;
+      margin-bottom: 30px;
+      border-radius: 7px;
+
+      &:hover {
+        background-color: #51006D;
+      }
+    }
+  }
+}
