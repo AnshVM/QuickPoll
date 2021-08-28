@@ -8,6 +8,7 @@ import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Button } from "@material-ui/core";
 import PersonOutlineSharpIcon from '@material-ui/icons/PersonOutlineSharp';
+import {useHistory} from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -21,6 +22,8 @@ const theme = createTheme({
 });
 
 export default function SignUp() {
+
+  let history = useHistory();
 
   const handleSignup = () => {
     const data = {
@@ -38,6 +41,7 @@ export default function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        history.push('/login')
       })
       .catch((error) => {
         console.error("Error:", error);
