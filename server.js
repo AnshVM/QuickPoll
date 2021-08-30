@@ -13,8 +13,6 @@ const path = require('path');
 app.use('/api', routes)
 
 dotenv.config();
-mongoose.set('bufferCommands', false);
-
 
 const port = process.env.PORT || 5000;
 
