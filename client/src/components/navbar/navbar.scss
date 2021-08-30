@@ -1,78 +1,81 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-@import '../../global.scss';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "../../global.scss";
 
-.navbar{
-    padding: 0px 15% 0px 15%;
-    height: 70px;
-    background-color: #F1EEEE;
-    font-family: 'Roboto',sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    .left{
-        h1{
-            color:#7700A0;
-            font-size: 1.5rem;
-            font-weight: 900;
-        }
+.navbar {
+  padding: 0px 15% 0px 15%;
+  height: 70px;
+  background-color: #f1eeee;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 600px) {
+    padding:0 15px 0 15px;
+  }
+  .left {
+    h1 {
+      color: #7700a0;
+      font-size: 1.5rem;
+      font-weight: 900;
     }
-    .right{
-        .logout{
-            text-decoration: none;
-            border: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: white;
-            background-color: #7700A0;
-            padding: 6px 18px 6px 18px;
-            border-radius: 10rem;
-            box-shadow: 2px 2px 4px grey ;
-            transition: all ease 0.3s;
-            cursor: pointer;
-            &:hover{
-                background-color: #51006D;
-            }
-        }
-        .loggedIn{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap:5px;
-            svg{
-                margin-right: 30px;
-            }
-        }
-        .login{
-            text-decoration: none;
-            color: black;
-            border: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-right: 40px;
-            transition: all ease 0.3s;
-            cursor: pointer;
-            &:hover{
-                color:#7700A0;
-            }
-        }
-        .signup{
-            text-decoration: none;
-            border: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: white;
-            background-color: #7700A0;
-            padding: 6px 18px 6px 18px;
-            border-radius: 10rem;
-            box-shadow: 2px 2px 4px grey ;
-            transition: all ease 0.3s;
-            cursor: pointer;
-            &:hover{
-                background-color: #51006D;
-            }
-        }
+  }
+  .right {
+    .logout {
+      text-decoration: none;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: white;
+      background-color: #7700a0;
+      padding: 6px 18px 6px 18px;
+      border-radius: 10rem;
+      box-shadow: 2px 2px 4px grey;
+      transition: all ease 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #51006d;
+      }
     }
+    .loggedIn {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+      svg {
+        margin-right: 30px;
+      }
+    }
+    .login {
+      text-decoration: none;
+      color: black;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-right: 40px;
+      transition: all ease 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: #7700a0;
+      }
+    }
+    .signup {
+      text-decoration: none;
+      border: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: white;
+      background-color: #7700a0;
+      padding: 6px 18px 6px 18px;
+      border-radius: 10rem;
+      box-shadow: 2px 2px 4px grey;
+      transition: all ease 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #51006d;
+      }
+    }
+  }
 }
-

@@ -29,9 +29,8 @@ export default function Login() {
   const [incorrect, setIncorrect] = useState(false)
   let history = useHistory();
   const dispatch = useDispatch();
-
   const handleLogin = () => {
-
+    //login
     const data = {
       password: document.getElementById("password").value,
       email: document.getElementById("email").value,
@@ -44,9 +43,7 @@ export default function Login() {
       },
       body: JSON.stringify(data),
     })
-
       .then((response) => response.json())
-
       .then((data) => {
         if (data.accessToken) {
           const decoded = jwt_decode(data.accessToken);
@@ -69,6 +66,8 @@ export default function Login() {
       });
   };
 
+  
+
   let incorrectStatement = incorrect ? "Email id or password is incorrect" : ""
 
   return (
@@ -89,6 +88,7 @@ export default function Login() {
             }}
           />
           <TextField
+            type="password"
             id="password"
             label="Password"
             style={{ marginTop: 30, marginBottom: 20 }}
