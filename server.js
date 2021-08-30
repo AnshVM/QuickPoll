@@ -1,9 +1,16 @@
+const express = require('express');
+const app = express();
+const routes = require('./routes/index')
+const cookieParser = require('cookie-parser');
+app.use(cookieParser())
+app.use(express.json())
 const mongoose = require('mongoose');
-const app = require('./app');
 const dotenv = require('dotenv');
 var http = require('http').createServer(app);
 var io = require('socket.io')(http);
 const path = require('path');
+
+app.use('/api',routes)
 
 dotenv.config();
 
