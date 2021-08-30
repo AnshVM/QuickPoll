@@ -30,10 +30,9 @@ export default function Login() {
   let history = useHistory();
   const dispatch = useDispatch();
   const handleLogin = () => {
-    //login
     const data = {
       password: document.getElementById("password").value,
-      email: document.getElementById("email").value,
+      email: document.getElementById("email").value.trim(),
     };
 
     fetch("/api/user/login", {
@@ -64,6 +63,8 @@ export default function Login() {
       .catch((error) => {
         console.error("Error:", error);
       });
+      
+
   };
 
   

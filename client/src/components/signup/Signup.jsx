@@ -27,9 +27,9 @@ export default function SignUp() {
 
   const handleSignup = () => {
     const data = {
-      username: document.getElementById("username").value,
+      username: document.getElementById("username").value.trim(),
       password: document.getElementById("password").value,
-      email: document.getElementById("email").value,
+      email: document.getElementById("email").value.trim(),
     };
     fetch("/api/user/signup", {
       method: "POST",
