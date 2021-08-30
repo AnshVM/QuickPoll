@@ -13,8 +13,8 @@ const path = require('path');
 app.use('/api',routes)
 
 dotenv.config();
-
-mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true});
+mongoose.set('bufferCommands', false);
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
 
 const port = process.env.PORT || 5000;
 
