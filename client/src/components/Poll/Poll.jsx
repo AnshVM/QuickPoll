@@ -6,7 +6,7 @@ import PollOption from "./PollOption";
 import './poll.scss'
 import { useSelector } from 'react-redux';
 import Snackbar from '@material-ui/core/Snackbar';
-
+import { useHistory } from 'react-router-dom'
 
 function PollContent({ selectedOption, setSelectedOption, pollData, voteSubmitted }) {
 
@@ -37,10 +37,12 @@ export default function Poll({ socket }) {
   const [voteSubmitted, setVoteSubmitted] = useState("") //"" or optionId
   const [error, setError] = useState("")
 
+  let history = useHistory();
   const user = useSelector((state) => state.loginState.user);
-  console.log(user)
+  const isLoggedIn = useSelector((state) => state.loginState.isLoggedIn)
+  console.log(isLoggedIn)
 
-  socket.on('POLL_UPDATE',(data)=>{
+  socket.on('POLL_UPDATE', (data) => {
     setPollData(data);
   })
 
@@ -84,7 +86,7 @@ export default function Poll({ socket }) {
         .then(data => {
           console.log('Success:', data);
           setPollData(data.poll);
-          socket.emit('POLL_UPDATE',data.poll);
+          socket.emit('POLL_UPDATE', data.poll);
         })
 
     }
@@ -95,10 +97,10 @@ export default function Poll({ socket }) {
   }
 
   const checkVoteSubmitted = (data) => {
-    let ans=false;
+    let ans = false;
     data.userVotedPolls.forEach((userVotedPoll) => {
-      if(userVotedPoll.pollId===id){
-        ans=true;
+      if (userVotedPoll.pollId === id) {
+        ans = true;
       }
     })
     setVoteSubmitted(ans)
@@ -107,7 +109,14 @@ export default function Poll({ socket }) {
 
   useEffect(() => {
     fetch('/api/poll/' + id)
-      .then(res => res.json())
+      .then(res => {
+        if(res.status===401){
+          history.push('/login')
+        }
+        else{
+          return res.json()
+        }
+      })
       .then(data => {
         setPollData(data);
         console.log(data)
@@ -115,6 +124,7 @@ export default function Poll({ socket }) {
   }, [])
 
   useEffect(() => {
+    console.log(user)
     if (user.id) {
       fetch('/api/user/' + user.id)
         .then(res => res.json())
@@ -122,7 +132,8 @@ export default function Poll({ socket }) {
           console.log(checkVoteSubmitted(data))
         })
     }
-  }, [user,pollData])
+  }, [user, pollData])
+
 
   return (
     <div>

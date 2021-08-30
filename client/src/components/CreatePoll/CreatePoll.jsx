@@ -11,11 +11,11 @@ export default function CreatePoll() {
   const token = useSelector(state => state.loginState.token);
 
   const [options, setOptions] = useState([
-    { label: "Poll option", placeholder: "Eg. Savitar", id: 1, value: "" },
-    { label: "Poll option", placeholder: "Eg. Zoom", id: 2, value: "" },
+    { label: "Poll option", placeholder: "Option 1", id: 1, value: "" },
+    { label: "Poll option", placeholder: "Option 2", id: 2, value: "" },
     {
       label: "Poll option",
-      placeholder: "Eg. Reverse Flash",
+      placeholder: "Option 3",
       id: 3,
       value: "",
     },
@@ -71,7 +71,7 @@ export default function CreatePoll() {
           question={question}
           setQuestion={setQuestion}
           label="Poll Question"
-          placeholder="Eg. Favourite villian from the show The Flash?"
+          placeholder="Question/topic of discussion"
           options={options}
           setOptions={setOptions}
         />

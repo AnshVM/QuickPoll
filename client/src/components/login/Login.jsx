@@ -12,6 +12,7 @@ import jwt_decode from "jwt-decode";
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { login } from '../../loginSlice';
+import {Link} from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -101,6 +102,7 @@ export default function Login() {
               ),
             }}
           />
+          <Link to="/signup">Not registered yet? Signup here</Link>
           <Button
             onClick={handleLogin}
             color="secondary"

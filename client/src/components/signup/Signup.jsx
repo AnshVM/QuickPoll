@@ -9,6 +9,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Button } from "@material-ui/core";
 import PersonOutlineSharpIcon from '@material-ui/icons/PersonOutlineSharp';
 import {useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const theme = createTheme({
   palette: {
@@ -90,6 +91,7 @@ export default function SignUp() {
               ),
             }}
           />
+          <Link to="/login">Already have an account? Login here</Link>
           <Button
             onClick={handleSignup}
             color="secondary"
