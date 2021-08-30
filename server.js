@@ -18,14 +18,12 @@ io.on('connection',(socket)=>{
     })
 })
 
-if(process.env.NODE_ENV === 'production'){
 
-    app.use(express.static('client/buld'));
+app.use(express.static(path.join(__dirname, "client", "build")))
 
-    app.use('*',(req,res)=>{
-        res.sendFile(path.resolve('client','build','index.html'))   
-    })
-}
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 http.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
