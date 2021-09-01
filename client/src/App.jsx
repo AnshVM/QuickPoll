@@ -26,6 +26,9 @@ export default function App() {
         if (data.name !== "JsonWebTokenError") {
           dispatch(login({ isLoggedIn: true, user: data.user}))
         }
+        else{
+          dispatch(login({isLoggedIn:false,user:{}}))
+        }
       })
   }, [])
 

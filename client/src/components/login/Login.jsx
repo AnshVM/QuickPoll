@@ -30,6 +30,7 @@ export default function Login() {
   const [incorrect, setIncorrect] = useState(false)
   let history = useHistory();
   const dispatch = useDispatch();
+  const msg = sessionStorage.getItem('msg');
   const handleLogin = () => {
     const data = {
       password: document.getElementById("password").value,
@@ -54,7 +55,12 @@ export default function Login() {
             isLoggedIn: true
           }
           dispatch(login({ ...dispatchBody }))
-          history.push('/')
+          if(sessionStorage.getItem('pollId')){
+            history.push('/poll/'+sessionStorage.getItem('pollId'))
+          }
+          else{
+            history.push('/')
+          }
         }
         else {
           setIncorrect(true)
@@ -77,6 +83,7 @@ export default function Login() {
       <ThemeProvider theme={theme}>
         <div className="loginCard">
           <h1>QuickPoll</h1>
+          <p>{msg}</p>
           <TextField
             id="email"
             label="Email"

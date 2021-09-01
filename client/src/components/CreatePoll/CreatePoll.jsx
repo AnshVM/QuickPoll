@@ -4,21 +4,19 @@ import "./createPoll.scss";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 export default function CreatePoll() {
   const history = useHistory();
   const userId = useSelector(state => state.loginState.user.id)
   const token = useSelector(state => state.loginState.token);
+  const isLoggedIn = useSelector(state => state.loginState.isLoggedIn)
+  console.log(isLoggedIn)
 
   const [options, setOptions] = useState([
-    { label: "Poll option", placeholder: "Option 1", id: 1, value: "" },
-    { label: "Poll option", placeholder: "Option 2", id: 2, value: "" },
-    {
-      label: "Poll option",
-      placeholder: "Option 3",
-      id: 3,
-      value: "",
-    },
+    { label: "Poll option", placeholder: "", id: 1, value: "" },
+    { label: "Poll option", placeholder: "", id: 2, value: "" },
+    { label: "Poll option", placeholder: "", id: 3, value: "" },
   ]);
 
   const [question, setQuestion] = useState();
@@ -59,7 +57,15 @@ export default function CreatePoll() {
       .catch((error) => {
         console.error("Error:", error);
       });
+
   };
+
+  useEffect(() => {
+    if (isLoggedIn === false) {
+      sessionStorage.setItem('msg','You need to login first')
+      history.push('/login')
+    }
+  }, [isLoggedIn])
 
   return (
     <div>
@@ -71,7 +77,7 @@ export default function CreatePoll() {
           question={question}
           setQuestion={setQuestion}
           label="Poll Question"
-          placeholder="Question/topic of discussion"
+          placeholder=""
           options={options}
           setOptions={setOptions}
         />

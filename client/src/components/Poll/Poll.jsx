@@ -36,7 +36,7 @@ export default function Poll({ socket }) {
   const [selectedOption, setSelectedOption] = useState();
   const [voteSubmitted, setVoteSubmitted] = useState("") //"" or optionId
   const [error, setError] = useState("")
-
+  console.log(sessionStorage.getItem)
   let history = useHistory();
   const user = useSelector((state) => state.loginState.user);
   const isLoggedIn = useSelector((state) => state.loginState.isLoggedIn)
@@ -111,6 +111,7 @@ export default function Poll({ socket }) {
     fetch('/api/poll/' + id)
       .then(res => {
         if(res.status===401){
+          sessionStorage.setItem('pollId',id)
           history.push('/login')
         }
         else{
